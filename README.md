@@ -12,5 +12,5 @@ Team Trees Rich Presence for Discord
 6) Make sure you have node installed *Download: https://nodejs.org/en/download/*
 7) Make sure you have discord opened and you have enabled **Display currently running game as a status message** then make sure no game is selected
   -- This setting can be found under Game Activity
-8) Run **npm i** in the folder
+8) Run **npm install** in the folder
 9) Open CMD in the folder and run **node index.js**
