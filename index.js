@@ -28,8 +28,8 @@ function formatAmount(v) {
 }
 
 async function updatePresence() {
-    const data = await ttApi(true, false, false);
-    if (data) {
+    const treeCount = await ttApi.getTotalTrees();
+    if (treeCount) {
         let days = clamp(daysIntoYear(new Date()), 0, 366);
         let daysInYear = days < 365 ? 365 : 366; 
         let now = new Date();
@@ -38,10 +38,10 @@ async function updatePresence() {
         let secondsDifference = Math.floor((now.getTime() - startOfDay.getTime()) / 1000);
 
         richPresenceClient.setActivity({
-            "details": `${formatAmount(data.trees)} trees`,
+            "details": `${formatAmount(treeCount)} trees`,
             "state": "Days",
             "largeImageKey" : "largeicon",
-            "largeImageText" : `${Math.floor(data.trees / 200000 * 1000) / 1000}%`,
+            "largeImageText" : `${Math.floor(treeCount / 200000 * 1000) / 1000}%`,
             "smallImageKey" : "smallicon",
             "smallImageText" : "#TeamTrees",
             "startTimestamp" : currentTimestamp,
