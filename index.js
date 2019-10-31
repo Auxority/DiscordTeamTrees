@@ -10,10 +10,6 @@ const richPresenceClient = new DiscordRPC.Client({
     "transport": "ipc"
 });
 
-function adjustRange(oldValue, oldMin, oldMax, newMin, newMax) {
-    return (((oldValue - oldMin) * newMax) / oldMax) + newMin
-}
-
 function clamp(value, min, max) {
     return Math.max(min, Math.min(max, value));
 }
